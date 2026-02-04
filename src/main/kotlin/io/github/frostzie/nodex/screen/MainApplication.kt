@@ -99,32 +99,28 @@ class MainApplication {
         }
 
         fun initializeJavaFX() {
-            if (!fxInitialized) {
-                System.setProperty("javafx.allowSystemPropertiesAccess", "true")
-                System.setProperty("prism.allowhidpi", "false")
 
-                try {
-                    JavaFXInitializer.startup {
-                        ThemeUtils.applyTheme(ThemeConfig.theme.get())
-                        ThemeConfig.theme.addListener { _, _, newTheme -> ThemeUtils.applyTheme(newTheme) }
-                        ThemeConfig.fontSize.addListener { _, _, _ ->
-                            primaryStage?.scene?.root?.style = "-fx-font-size: ${ThemeConfig.fontSize.get()}px;"
-                        }
-                        JavaFXInitializer.setImplicitExit(false)
-                        fxInitialized = true
-                        createMainWindow()
-                        logger.info("JavaFX Platform initialized and main window pre-created!")
+            if (fxInitialized) return
+            fxInitialized = true
+
+            System.setProperty("javafx.allowSystemPropertiesAccess", "true")
+            System.setProperty("prism.allowhidpi", "false")
+
+            try {
+                JavaFXInitializer.startup {
+                    ThemeUtils.applyTheme(ThemeConfig.theme.get())
+                    ThemeConfig.theme.addListener { _, _, newTheme -> ThemeUtils.applyTheme(newTheme) }
+                    ThemeConfig.fontSize.addListener { _, _, _ ->
+                        primaryStage?.scene?.root?.style = "-fx-font-size: ${ThemeConfig.fontSize.get()}px;"
                     }
-                } catch (e: IllegalStateException) {
-                    fxInitialized = true
-                    JavaFXInitializer.runLater {
-                        JavaFXInitializer.setImplicitExit(false)
-                        createMainWindow()
-                        logger.info("JavaFX Platform was already initialized, main window pre-created!", e)
-                    }
-                } catch (e: Exception) {
-                    logger.error("Failed to initialize JavaFX", e)
+                    JavaFXInitializer.setImplicitExit(false)
+                    createMainWindow()
+                    logger.info("JavaFX Platform initialized and main window pre-created!")
                 }
+            } catch (e: Exception) {
+                // If it's already initialized, JavaFXInitializer.startup handles it and runs the runnable
+                // This is only if truly bad
+                logger.error("Failed to initialize JavaFX", e)
             }
         }
 
