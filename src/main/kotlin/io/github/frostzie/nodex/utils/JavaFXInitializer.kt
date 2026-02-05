@@ -1,5 +1,6 @@
 package io.github.frostzie.nodex.utils
 
+import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Method
 
 object JavaFXInitializer {
@@ -57,11 +58,15 @@ object JavaFXInitializer {
 
         try {
             startupMethod?.invoke(null, runnable)
-        } catch (e: IllegalStateException) {
-            logger.info("JavaFX Platform already initialized")
-            runnable.run()
         } catch (e: Exception) {
-            logger.error("Error starting JavaFX platform", e)
+            val isAlreadyInitialized = (e is InvocationTargetException && e.cause is IllegalStateException) || (e is IllegalStateException)
+
+            if (isAlreadyInitialized) {
+                logger.info("JavaFX Platform already initialized")
+                runLater(runnable)
+            } else {
+                logger.error("Error starting JavaFX platform", e)
+            }
         }
     }
 
