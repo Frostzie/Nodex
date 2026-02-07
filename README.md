@@ -18,6 +18,10 @@
   <code style="color: red"> many features of this mod have not been fully implemented</code>
 </div>
 
+**Notice: If you plan to contribute please be aware that mostly everything has changed between alpha 2 and this version!**<br>
+Check: [Project Structure](docs/ProjectStructure_1.md) for more info on the new structure.<br>
+*This branch will not compile for a good while...*
+
 ## 📝 Overview
 
 Nodex is a minecraft mod that allows in game data pack editing with a built-in text editor.<br>
