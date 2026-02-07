@@ -30,6 +30,7 @@ class BottomBarView : HBox() {
         minHeight = 25.0
         maxHeight = 25.0
         alignment = Pos.CENTER_LEFT
+        styleClass.add("bottom-bar")
 
         bind()
 
@@ -72,7 +73,6 @@ class BottomBarView : HBox() {
         readOnlyToggle.managedProperty().bind(viewModel.isDocumentPresent)
 
         // Performance Area
-        //TODO: Fix button size being too big
         //TODO: Add CPU usage
         //TODO: Save to config to save chosen option
         performanceMenu.styleClass.addAll(Styles.FLAT, Tweaks.NO_ARROW)
