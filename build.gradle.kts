@@ -11,7 +11,7 @@ plugins {
 
 val mcVersion = property("mcVersion")!!.toString()
 
-val javafx = libs.versions.javafxapp.get()
+val javafx: String = libs.versions.javafxapp.get()
 // http://insecure.repo1.maven.org/maven2/org/openjfx/javafx-base/21.0.8/
 val javafxClassifiers = listOf(
 	"win",
@@ -82,6 +82,10 @@ dependencies {
 	include(libs.directoryWatcher)
 	include(libs.jacksonCore)
 
+	// For native windows bar
+	implementation("io.github.micheljung:fxstage:0.8.4")
+	include("io.github.micheljung:fxstage:0.8.4")
+
 	// JavaFX
 	for (classifier in javafxClassifiers) {
 		implementation(javafxDep("base", classifier))
@@ -89,12 +93,14 @@ dependencies {
 		implementation(javafxDep("web", classifier))
 		implementation(javafxDep("media", classifier))
 		implementation(javafxDep("controls", classifier))
+		implementation(javafxDep("fxml", classifier))
 
 		include(javafxDep("base", classifier))
 		include(javafxDep("graphics", classifier))
 		include(javafxDep("web", classifier))
 		include(javafxDep("media", classifier))
 		include(javafxDep("controls", classifier))
+		include(javafxDep("fxml", classifier))
 	}
 }
 
