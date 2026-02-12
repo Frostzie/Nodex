@@ -23,3 +23,4 @@ Datapack IDE relies on the following software:
 | [Directory Watcher](https://github.com/gmethvin/directory-watcher)            | [Apache 2.0](https://github.com/gmethvin/directory-watcher/blob/main/LICENSE)           | ✅               |
 | [JSVG](https://github.com/weisJ/jsvg)                                         | [MIT](https://github.com/weisJ/jsvg/blob/master/LICENSE)                                | ✅               |
 | [Jackson Core](https://github.com/FasterXML/jackson-core/)                    | [Apache 2.0](https://github.com/FasterXML/jackson-core/blob/2.x/LICENSE)                | ✅               |
+| [FxStage](https://github.com/micheljung/fxstage)                              | [MIT](https://github.com/micheljung/fxstage/blob/main/LICENSE.md)                       | ✅               |
