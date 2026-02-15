@@ -2,20 +2,23 @@ package io.github.frostzie.nodex.ui.viewmodel.bottombar
 
 import io.github.frostzie.nodex.domain.entity.EditorDocument
 import io.github.frostzie.nodex.services.core.ModInfoService
+import io.github.frostzie.nodex.services.core.PerformanceService
 import io.github.frostzie.nodex.services.workspace.EditorService
-import io.github.frostzie.nodex.ui.util.PerformanceTracker
 import javafx.beans.property.ReadOnlyBooleanProperty
 import javafx.beans.property.ReadOnlyBooleanWrapper
 import javafx.beans.property.ReadOnlyStringProperty
 import javafx.beans.property.SimpleStringProperty
 import javafx.beans.property.StringProperty
 
-class BottomBarViewModel {
-    val ideVersionProperty: StringProperty = SimpleStringProperty("Nodex v${ModInfoService.modInfo.version}")
+class BottomBarViewModel(
+    private val modInfoService: ModInfoService,
+    private val editorService: EditorService,
+    private val performanceService: PerformanceService
+) {
+    val ideVersionProperty: StringProperty = SimpleStringProperty("Nodex v${modInfoService.modInfo.version}")
 
-    private val performanceTracker = PerformanceTracker()
-    val fpsProperty: ReadOnlyStringProperty get() = performanceTracker.fpsProperty
-    val memoryProperty: ReadOnlyStringProperty get() = performanceTracker.memoryProperty
+    val fpsProperty: ReadOnlyStringProperty get() = performanceService.fpsProperty
+    val memoryProperty: ReadOnlyStringProperty get() = performanceService.memoryProperty
 
     private val _isDocumentLocked = ReadOnlyBooleanWrapper(false)
     val isDocumentLocked: ReadOnlyBooleanProperty = _isDocumentLocked.readOnlyProperty
@@ -24,12 +27,10 @@ class BottomBarViewModel {
     val isDocumentPresent: ReadOnlyBooleanProperty = _isDocumentPresent.readOnlyProperty
 
     init {
-        performanceTracker.start()
+        _isDocumentPresent.bind(editorService.activeDocument.isNotNull)
 
-        _isDocumentPresent.bind(EditorService.activeDocument.isNotNull)
-
-        EditorService.activeDocument.addListener { _, _, newDoc -> updateLockBinding(newDoc) }
-        updateLockBinding(EditorService.activeDocument.get())
+        editorService.activeDocument.addListener { _, _, newDoc -> updateLockBinding(newDoc) }
+        updateLockBinding(editorService.activeDocument.get())
     }
 
     private fun updateLockBinding(document: EditorDocument?) {
@@ -42,6 +43,6 @@ class BottomBarViewModel {
     }
 
     fun toggleFileLock() {
-        EditorService.toggleFileLock()
+        editorService.toggleFileLock()
     }
 }

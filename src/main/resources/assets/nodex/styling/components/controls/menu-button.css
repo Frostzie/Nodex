@@ -1,0 +1,12 @@
+/* MenuBar size */
+.bottom-bar .menu-button {
+    -fx-font-size: 15px;
+    -fx-min-height: 23px;
+    -fx-max-height: 23px;
+    -fx-pref-height: 23px;
+}
+
+/* Padding on both sides */
+.bottom-bar .menu-button .label {
+    -fx-padding: 0 5 0 5;
+}

@@ -1,0 +1,30 @@
+/* Background Color (Not Selected) */
+.code-editor .code-area {
+    -fx-background-color: -color-bg-default;
+}
+
+/* Text Color */
+.code-editor .code-area .text {
+    -fx-fill: -color-fg-default;
+}
+
+/* Line Numbers */
+.code-editor .code-area .lineno {
+    -fx-background-color: -color-bg-subtle;
+    -fx-text-fill: -color-fg-muted;
+}
+
+/* Caret (Typing Cursor Line) */
+.code-editor .code-area .caret {
+    -fx-stroke: -color-fg-default;
+}
+
+/* Caret (Cursor's Background Area) */
+.code-editor .code-area .paragraph-box:has-caret {
+    -fx-background-color: -color-bg-subtle;
+}
+
+/* Selection */
+.code-editor .code-area .selection {
+    -fx-fill: -color-accent-subtle;
+}

@@ -6,6 +6,7 @@ import java.util.concurrent.CopyOnWriteArrayList
  * Registry for scene-level CSS stylesheets.
  * Manages internal component styles, user overrides, and plugin changes.
  */
+// TODO: Migrate to a proper Service.
 object StyleRegistry {
     private val stylesheets = CopyOnWriteArrayList<StyleSheet>()
 
@@ -19,7 +20,7 @@ object StyleRegistry {
         register(
             StyleSheet(
                 id = "code-area",
-                sourceUrl = cssFiles + "code-area.css",
+                sourceUrl = cssFiles + "controls/code-area.css",
                 source = StyleSource.INTERNAL,
                 priority = 1
             )
@@ -27,7 +28,15 @@ object StyleRegistry {
         register(
             StyleSheet(
                 id = "menu-bar",
-                sourceUrl = cssFiles + "menu-bar.css",
+                sourceUrl = cssFiles + "controls/menu-button.css",
+                source = StyleSource.INTERNAL,
+                priority = 1
+            )
+        )
+        register(
+            StyleSheet(
+                id = "rectangle",
+                sourceUrl = cssFiles + "primitives/rectangle.css",
                 source = StyleSource.INTERNAL,
                 priority = 1
             )

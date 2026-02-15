@@ -16,6 +16,7 @@ class RightBarView : VBox() {
         prefWidth = 40.0
         minWidth = 40.0
         maxWidth = 40.0
+        styleClass.add("right-bar")
 
         val bottomBtnArea = VBox().apply {
             alignment = Pos.TOP_CENTER

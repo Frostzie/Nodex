@@ -11,14 +11,13 @@ import javafx.scene.layout.VBox
 import org.kordamp.ikonli.javafx.FontIcon
 import org.kordamp.ikonli.material2.Material2OutlinedAL
 
-class LeftBarView : VBox() {
-    private val viewModel = LeftBarViewModel()
+class LeftBarView(private val viewModel: LeftBarViewModel) : VBox() {
 
     init {
         prefWidth = 40.0
         minWidth = 40.0
         maxWidth = 40.0
-
+        styleClass.add("left-bar")
 
         val topBtnArea = VBox().apply {
             alignment = Pos.TOP_CENTER
@@ -40,18 +39,14 @@ class LeftBarView : VBox() {
             alignment = Pos.TOP_CENTER
 
             //TODO: Imp open log/debug screen
-            val consoleBtn = Button(null, FontIcon(Material2OutlinedAL.ARTICLE)).apply {
-                isDisable = false
-            }
+            val consoleBtn = Button(null, FontIcon(Material2OutlinedAL.ARTICLE))
 
             consoleBtn.styleClass.addAll(
                 Styles.FLAT,
                 Styles.BUTTON_ICON
             )
 
-            consoleBtn.onAction
-
-            children.add(consoleBtn)
+            children.add(consoleBtn.apply { isDisable = true })
             padding = Insets(2.0)
         }
 
