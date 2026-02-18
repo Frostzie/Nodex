@@ -1,4 +1,4 @@
-package io.github.frostzie.nodex.events
+package io.github.frostzie.nodex.eventsLEGACY
 
 import io.github.frostzie.nodex.settings.annotations.SubscribeEvent
 import io.github.frostzie.nodex.utils.LoggerProvider
@@ -9,7 +9,9 @@ import kotlin.reflect.full.findAnnotation
 import kotlin.reflect.full.memberFunctions
 import kotlin.reflect.jvm.isAccessible
 
-object EventBus {
+@Deprecated("Legacy For review / rewrite")
+object EventBus
+/*{
     val logger = LoggerProvider.getLogger("EventBus")
     private val listeners = ConcurrentHashMap<Class<*>, CopyOnWriteArrayList<(Any) -> Unit>>()
     private val handlerMap = ConcurrentHashMap<Any, MutableList<Pair<Class<*>, (Any) -> Unit>>>()
@@ -79,3 +81,4 @@ object EventBus {
         clear()
     }
 }
+ */
