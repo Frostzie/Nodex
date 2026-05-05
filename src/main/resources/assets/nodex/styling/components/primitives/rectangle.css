@@ -1,0 +1,5 @@
+/*TODO: Change to AtlantaFX style */
+.tool-window-drop-overlay {
+    -fx-fill: rgba(130, 200, 229, 0.4);
+    -fx-stroke: rgba(130, 200, 229, 0.8);
+}

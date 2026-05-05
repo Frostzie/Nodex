@@ -20,6 +20,12 @@
 	"icon": "assets/nodex/icon.png",
 	"environment": "client",
 	"entrypoints": {
+		"preLaunch": [
+			{
+				"value": "io.github.frostzie.nodex.bootstrap.preLaunch.JavaFxNativeBootstrapper",
+				"adapter": "kotlin"
+			}
+		],
 		"main": [
 			{
 				"value": "io.github.frostzie.nodex.Nodex",

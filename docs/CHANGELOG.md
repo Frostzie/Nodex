@@ -53,3 +53,32 @@
 - Massively improved file system watcher.
 - Removed multiple unused UI Screens.
 - Removed Assets folder from mods configs.
+
+
+## [0.0.3]
+
+### Overview
+Remade the whole mod from the ground up to be more maintainable. 
+The functionality is almost identical to alpha 2 but code wise nothing was kept. 
+Many features are missing from alpha 2. (Sorry) Ui Wise it looks about the same.
+
+### Added
+- Updated to Minecraft 26.1
+- Intro Screen on first start.
+- Native Topbar support
+- Auto for text editor.
+- New config system with backups. Creates .nodex folder under project similar to other IDEs.
+- OS Specific JavaFX loading. Downloads only your OS required JavaFX libraries. (Jar size decrease)
+- FPS and Memory usage display.
+
+### Removed (Temporary)
+- Universal Configs.
+- Datapack Mirroring to worlds.
+- Custom Themes, CSS, Theme Options.
+
+### Technical Changes
+- Updated to Java 25 and JavaFX 26.
+- Koin DI for services.
+- Interface for most services.
+- Settings, ToolWindow registration.
+- Split all managers into separate services.

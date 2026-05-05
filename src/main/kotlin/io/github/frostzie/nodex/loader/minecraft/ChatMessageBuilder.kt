@@ -13,7 +13,7 @@ object ChatMessageBuilder {
         val fullMessage = buildMessage(warningMessage, copyableText, "WARN", 0xFFA500, "warning")
 
         MCInterface.runOnRenderThread {
-            MCInterface.displayClientMessage(fullMessage, false)
+            MCInterface.displayClientMessage(fullMessage)
         }
     }
 
@@ -21,7 +21,7 @@ object ChatMessageBuilder {
         val fullMessage = buildMessage(errorMessage, copyableText, "ERROR", 0xFF5555, "error")
 
         MCInterface.runOnRenderThread {
-            MCInterface.displayClientMessage(fullMessage, false)
+            MCInterface.displayClientMessage(fullMessage)
         }
     }
 
@@ -42,7 +42,7 @@ object ChatMessageBuilder {
             .append(clickable)
 
         MCInterface.runOnRenderThread {
-            MCInterface.displayClientMessage(fullMessage, false)
+            MCInterface.displayClientMessage(fullMessage)
         }
     }
 

@@ -1,37 +1,48 @@
 [versions]
-kotlin = "2.1.0"
-fabric_kotlin = "1.13.4+kotlin.2.2.0"
-devauth = "1.2.1"
-javafxapp = "21.0.8"
+kotlin = "2.3.20"
+fabric_kotlin = "1.13.10+kotlin.2.3.20"
+devauth = "1.2.2"
+javafxapp = "26"
 javafx_plugin = "0.1.0"
 atlantafx-base = "2.1.0"
 ikonli = "12.4.0"
-richTextFXv = "0.11.6"
-flowlessv = "0.7.4"
-reactFXv = "2.0-M5"
+richTextFXv = "0.11.7"
+flowlessV = "0.7.4"
+reactFXv = "2.0-M6"
 undoFXv = "2.1.1"
 wellbehavedFXv = "0.3.3"
 directoryWatcherV = "0.19.1"
 jsvgV = "2.0.0"
 jacksonCoreV = "2.17.1"
+koin = "4.2.1-RC1"
+kotlinx = "1.10.2"
 
 [libraries]
 fabric_kotlin = { module = "net.fabricmc:fabric-language-kotlin", version.ref = "fabric_kotlin" }
 devauth = { module = "me.djtheredstoner:DevAuth-fabric", version.ref = "devauth" }
 
-jacksonCore = { module = "com.fasterxml.jackson.core:jackson-core", version.ref = "jacksonCoreV" }
-directoryWatcher = { module = "io.methvin:directory-watcher", version.ref = "directoryWatcherV" }
-jsvg = { module = "com.github.weisj:jsvg", version.ref = "jsvgV" }
-richTextFX = { module = "org.fxmisc.richtext:richtextfx", version.ref = "richTextFXv"}
-flowless = { module = "org.fxmisc.flowless:flowless", version.ref = "flowlessv" }
-reactFX = { module = "org.reactfx:reactfx", version.ref = "reactFXv" }
-undofx = { module = "org.fxmisc.undo:undofx", version.ref = "undoFXv" }
-wellbehavedfx = { module = "org.fxmisc.wellbehaved:wellbehavedfx", version.ref = "wellbehavedFXv" }
 atlantaFX = { module = "io.github.mkpaz:atlantafx-base", version.ref = "atlantafx-base" }
 ikonliJavaFX = { module = "org.kordamp.ikonli:ikonli-javafx", version.ref = "ikonli"}
 ikonliCore = { module = "org.kordamp.ikonli:ikonli-core", version.ref = "ikonli"}
 material2 = { module = "org.kordamp.ikonli:ikonli-material2-pack", version.ref = "ikonli"}
 feather = { module = "org.kordamp.ikonli:ikonli-feather-pack", version.ref = "ikonli"}
+jsvg = { module = "com.github.weisj:jsvg", version.ref = "jsvgV" }
+
+richTextFX = { module = "org.fxmisc.richtext:richtextfx", version.ref = "richTextFXv"}
+flowless = { module = "org.fxmisc.flowless:flowless", version.ref = "flowlessV" }
+reactFX = { module = "org.reactfx:reactfx", version.ref = "reactFXv" }
+undofx = { module = "org.fxmisc.undo:undofx", version.ref = "undoFXv" }
+wellbehavedfx = { module = "org.fxmisc.wellbehaved:wellbehavedfx", version.ref = "wellbehavedFXv" }
+
+jacksonCore = { module = "com.fasterxml.jackson.core:jackson-core", version.ref = "jacksonCoreV" }
+jacksonDatabind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jacksonCoreV" }
+jacksonModuleKotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jacksonCoreV" }
+jacksonDatatypeJsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jacksonCoreV" }
+jacksonAnnotations = { module = "com.fasterxml.jackson.core:jackson-annotations", version.ref = "jacksonCoreV" }
+
+directoryWatcher = { module = "io.methvin:directory-watcher", version.ref = "directoryWatcherV" }
+
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 
 [plugins]
 kotlin_jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
