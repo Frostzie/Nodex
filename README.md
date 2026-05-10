@@ -8,19 +8,14 @@
 <div align="center">  
 
   [![Discord](https://img.shields.io/discord/1163847082080211025?label=discord&color=9089DA&logo=discord&style=for-the-badge)](https://discord.com/invite/qZ885qTvkx)
-  [![Downloads](https://img.shields.io/github/downloads/Frostzie/DataPack-IDE/total?label=downloads&color=208a19&logo=github&style=for-the-badge)](https://github.com/Frostzie/DataPack-IDE/releases)
-  
-  [![Fabric](https://img.shields.io/badge/Fabric-0.131.0+1.21.8-blue.svg?logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBmaWxsPSIjMzgzNDJhIiBkPSJNOSAxaDF2MWgxdjFoMXYxaDF2MWgxdjFoMXYyaC0xdjFoLTJ2MWgtMXYxaC0xdjFIOXYySDh2MUg2di0xSDV2LTFINHYtMUgzdi0xSDJWOWgxVjhoMVY3aDFWNmgxVjVoMVY0aDFWMmgxeiIvPjxwYXRoIGZpbGw9IiNkYmQwYjQiIGQ9Ik00IDlWOGgxVjdoMVY2aDFsMS0xVjRoMVYyaDF2MWgxdjFoMXYxaDF2MWwtMSAxLTIgMy0zIDMtMy0zeiIvPjxwYXRoIGZpbGw9IiNiY2IyOWMiIGQ9Ik05IDNoMXYxaDF2MWgxdjFoMXYxaC0xTDkgNHpNMTAgMTBoMVY5aDFWN2gtMXYxaC0xekg4djJoMXYtMWgxek04IDEySDd2MWgxeiIvPjxwYXRoIGZpbGw9IiNjNmJjYTUiIGQ9Ik03IDVoMXYyaDN2MUg5VjZIN3pNNiA4aDF2MmgyVjlINnoiLz48cGF0aCBmaWxsPSIjYWVhNjk0IiBkPSJNMyA5djFsMyAzaDF2LTFINnYtMUg1di0xSDRWOXoiLz48cGF0aCBmaWxsPSIjOWE5MjdlIiBkPSJNMyAxMHYxaDJ2MmgydjFINnYtMkg0di0yeiIvPjxwYXRoIGZpbGw9IiM4MDdhNmQiIGQ9Ik0xMyA3aDF2MWgtMXoiLz48cGF0aCBmaWxsPSIjMzgzNDJhIiBkPSJNOSA0djFoMnYyaDFWNmgtMlY0eiIvPjwvc3ZnPgo=)](https://fabricmc.net/)
-  [![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-orange?logo=kotlin&logocolor=white)](https://kotlinlang.org/)
-  [![Java](https://img.shields.io/badge/Java-jdk%2021-red?logo=openjdk&logocolor=white)](https://jdk.java.net/21/)
+  [![Downloads](https://img.shields.io/modrinth/dt/XlilVGvF)](https://modrinth.com/mod/nodex/versions)
+
+  [![Kotlin](https://img.shields.io/badge/Kotlin-2.3.20-orange?logo=kotlin&logocolor=white)](https://kotlinlang.org/)
+  [![Java](https://img.shields.io/badge/Java-jdk%2025-red?logo=openjdk&logocolor=white)](https://jdk.java.net/25/)
 
   <code style="color: red"> This mod is currently in alpha and is in active development</code> <br>
   <code style="color: red"> many features of this mod have not been fully implemented</code>
 </div>
-
-**Notice: If you plan to contribute please be aware that mostly everything has changed between alpha 2 and this version!**<br>
-Check: [Project Structure](docs/ProjectStructure_1.md) for more info on the new structure.<br>
-*This branch will not compile for a good while...*
 
 ## 📝 Overview
 
@@ -82,7 +77,9 @@ Check the modrinth versions page for more info [here](https://modrinth.com/proje
 
 ## 🖐️ Want to support the project?
 Here's a donation link:<br>
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/frostzie)
+<a href="https://ko-fi.com/frostzie" target="_blank">
+  <img src="https://storage.ko-fi.com/cdn/brandasset/v2/support_me_on_kofi_blue.png" width="200" alt="Ko-fi" />
+</a>
 <br>
 All proceeds goes to frostzie
 

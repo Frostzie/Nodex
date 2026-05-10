@@ -52,7 +52,7 @@ class IdeScreenBuilder(
         val emptyCodeEditorView = EmptyCodeEditorView()
 
         val codeEditorViewFactory: (EditorTab) -> CodeEditorView = { tab ->
-            CodeEditorView(tab.id, tab.content) { tabId, newContent ->
+            CodeEditorView(tab.content, tab.id) { tabId, newContent ->
                 editorAreaViewModel.updateContent(tabId, newContent)
             }
         }
