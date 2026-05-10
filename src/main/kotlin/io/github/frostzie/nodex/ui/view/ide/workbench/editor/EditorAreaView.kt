@@ -1,6 +1,8 @@
 package io.github.frostzie.nodex.ui.view.ide.workbench.editor
 
+import atlantafx.base.theme.Styles
 import io.github.frostzie.nodex.domain.uicontract.EditorTab
+import io.github.frostzie.nodex.services.ui.editor.TabStyleService
 import io.github.frostzie.nodex.ui.view.ide.workbench.editor.pane.CodeEditorView
 import io.github.frostzie.nodex.ui.view.ide.workbench.editor.pane.EmptyCodeEditorView
 import io.github.frostzie.nodex.ui.viewmodel.ide.workbench.editor.EditorAreaViewModel
@@ -16,8 +18,9 @@ class EditorAreaView(
 ) : BorderPane() {
 
     private val tabPane = TabPane().apply {
-        tabDragPolicy = TabPane.TabDragPolicy.REORDER
-        tabClosingPolicy = TabPane.TabClosingPolicy.ALL_TABS
+        Styles.TABS_CLASSIC
+        TabPane.TabDragPolicy.REORDER
+        TabPane.TabClosingPolicy.ALL_TABS
     }
 
     private val editorContainer = BorderPane()

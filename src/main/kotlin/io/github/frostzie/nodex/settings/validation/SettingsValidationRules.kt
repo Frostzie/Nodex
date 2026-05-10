@@ -1,12 +1,12 @@
 package io.github.frostzie.nodex.settings.validation
 
-import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.ObjectMapper
 import io.github.frostzie.nodex.settings.schema.SettingSpec
 import io.github.frostzie.nodex.domain.settings.SettingValueType
+import tools.jackson.databind.JsonNode
+import tools.jackson.module.kotlin.jsonMapper
 
 object SettingsValidationRules {
-    private val mapper = ObjectMapper()
+    private val mapper = jsonMapper()
 
     data class Result(val isValid: Boolean, val reason: String? = null)
 
@@ -36,8 +36,8 @@ object SettingsValidationRules {
             SettingValueType.BOOLEAN -> node.isBoolean
             SettingValueType.INT -> node.isInt
             SettingValueType.DOUBLE -> node.isFloatingPointNumber
-            SettingValueType.STRING -> node.isTextual
-            SettingValueType.ENUM -> node.isTextual && spec.enumValues.contains(node.asText())
+            SettingValueType.STRING -> node.isString
+            SettingValueType.ENUM -> node.isString && spec.enumValues.contains(node.asString())
             SettingValueType.COLOR -> node.isObject
         }
     }
@@ -46,8 +46,8 @@ object SettingsValidationRules {
         val constraints = spec.constraints
         if (constraints.required && isEmptyRequired(node)) return false
 
-        if (node.isTextual) {
-            val text = node.asText()
+        if (node.isString) {
+            val text = node.asString()
             constraints.minLength?.let { if (text.length < it) return false }
             constraints.maxLength?.let { if (text.length > it) return false }
             constraints.regex?.let { if (!Regex(it).matches(text)) return false }
@@ -64,7 +64,7 @@ object SettingsValidationRules {
 
     private fun isEmptyRequired(node: JsonNode): Boolean {
         if (node.isMissingNode || node.isNull) return true
-        if (node.isTextual) return node.asText().isBlank()
+        if (node.isString) return node.asString().isBlank()
         return false
     }
 }

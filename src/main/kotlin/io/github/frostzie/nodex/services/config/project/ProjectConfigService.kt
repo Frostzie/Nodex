@@ -1,10 +1,10 @@
 package io.github.frostzie.nodex.services.config.project
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import io.github.frostzie.nodex.api.file.FileOperations
 import io.github.frostzie.nodex.api.file.FileWatcher
 import io.github.frostzie.nodex.utils.LoggerProvider
+import tools.jackson.module.kotlin.jsonMapper
+import tools.jackson.module.kotlin.kotlinModule
 import java.nio.file.Path
 import java.time.Instant
 
@@ -17,7 +17,7 @@ class ProjectConfigService(
     private val fileWatcher: FileWatcher
 ) {
     private val logger = LoggerProvider.getLogger("ProjectConfigService")
-    private val mapper = ObjectMapper().registerKotlinModule()
+    private val mapper = jsonMapper { addModules(kotlinModule()) }
 
     private val currentPid = ProcessHandle.current().pid()
     private var claimedProject: Path? = null

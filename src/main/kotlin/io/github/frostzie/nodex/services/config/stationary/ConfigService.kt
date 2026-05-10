@@ -1,11 +1,11 @@
 package io.github.frostzie.nodex.services.config.stationary
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import io.github.frostzie.nodex.api.config.Config
 import io.github.frostzie.nodex.api.file.FileOperations
 import io.github.frostzie.nodex.api.misc.ModVersion
 import io.github.frostzie.nodex.utils.LoggerProvider
+import tools.jackson.module.kotlin.jsonMapper
+import tools.jackson.module.kotlin.kotlinModule
 import java.nio.file.Path
 
 /**
@@ -18,7 +18,7 @@ class ConfigService(
     private val modVersion: ModVersion
 ) : Config {
     private val logger = LoggerProvider.getLogger("ConfigService")
-    private val mapper = ObjectMapper().registerKotlinModule()
+    private val mapper = jsonMapper { addModules(kotlinModule()) }
     private val configPath = configRoot.resolve("nodex").resolve("nodex.json")
 
     private var _lastUsedModVersion: String = "0.0.0"

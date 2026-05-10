@@ -1,10 +1,10 @@
 package io.github.frostzie.nodex.services.config.project
 
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.fasterxml.jackson.module.kotlin.readValue
 import io.github.frostzie.nodex.domain.config.TreeConfig
 import io.github.frostzie.nodex.api.file.FileOperations
 import io.github.frostzie.nodex.utils.LoggerProvider
+import tools.jackson.module.kotlin.jsonMapper
+import tools.jackson.module.kotlin.readValue
 import java.nio.file.Path
 import kotlin.io.path.invariantSeparatorsPathString
 import kotlin.io.path.relativeTo
@@ -14,7 +14,7 @@ import kotlin.io.path.relativeTo
  */
 class TreeConfigService(private val fileOps: FileOperations) {
     private val logger = LoggerProvider.getLogger("TreeConfigService")
-    private val mapper = jacksonObjectMapper()
+    private val mapper = jsonMapper()
 
     fun load(projectRoot: Path): TreeConfig {
         val configPath = getConfigPath(projectRoot)

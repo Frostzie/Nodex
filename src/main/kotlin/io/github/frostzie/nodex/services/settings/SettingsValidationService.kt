@@ -1,8 +1,5 @@
 package io.github.frostzie.nodex.services.settings
 
-import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import io.github.frostzie.nodex.domain.settings.AppSettings
 import io.github.frostzie.nodex.settings.registry.SettingsRegistry
 import io.github.frostzie.nodex.settings.registry.SettingsStores
@@ -11,6 +8,9 @@ import io.github.frostzie.nodex.settings.validation.SettingsValidationRules
 import io.github.frostzie.nodex.settings.validation.SettingsValidator
 import io.github.frostzie.nodex.settings.validation.ValidationIssue
 import io.github.frostzie.nodex.settings.validation.ValidationResult
+import tools.jackson.databind.JsonNode
+import tools.jackson.module.kotlin.jsonMapper
+import tools.jackson.module.kotlin.kotlinModule
 
 /**
  * Stateful settings validation service.
@@ -21,7 +21,7 @@ class SettingsValidationService(
     private val registry: SettingsRegistry,
     private val storeId: String = SettingsStores.CORE
 ) {
-    private val mapper = ObjectMapper().registerKotlinModule()
+    private val mapper = jsonMapper { addModules(kotlinModule()) }
     private val defaults = AppSettings()
 
     fun validate(node: JsonNode, defaults: AppSettings, storeIdOverride: String? = null): ValidationResult {
@@ -46,14 +46,14 @@ class SettingsValidationService(
                     ValidationIssue(
                         path = spec.id,
                         reason = result.reason ?: "invalid",
-                        oldValue = mapper.valueToTree(value),
-                        newValue = mapper.valueToTree(defaultValue)
+                        oldValue = mapper.valueToTree<JsonNode>(value),
+                        newValue = mapper.valueToTree<JsonNode>(defaultValue)
                     )
                 )
             }
         }
         return ValidationResult(
-            mapper.valueToTree(staged),
+            mapper.valueToTree<JsonNode>(staged),
             issues
         )
     }

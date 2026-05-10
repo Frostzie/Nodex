@@ -1,6 +1,6 @@
 package io.github.frostzie.nodex.api.config
 
-import com.fasterxml.jackson.databind.JsonNode
+import tools.jackson.databind.JsonNode
 
 /**
  * Transforms [JsonNode] data across version boundaries.

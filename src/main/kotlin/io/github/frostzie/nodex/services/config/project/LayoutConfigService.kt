@@ -1,11 +1,11 @@
 package io.github.frostzie.nodex.services.config.project
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import io.github.frostzie.nodex.api.config.LayoutPersistence
 import io.github.frostzie.nodex.domain.config.LayoutConfig
 import io.github.frostzie.nodex.api.file.FileOperations
 import io.github.frostzie.nodex.utils.LoggerProvider
+import tools.jackson.module.kotlin.jsonMapper
+import tools.jackson.module.kotlin.kotlinModule
 import java.nio.file.Path
 
 /**
@@ -16,7 +16,7 @@ class LayoutConfigService(
     private val fileOps: FileOperations
 ) : LayoutPersistence {
     private val logger = LoggerProvider.getLogger("LayoutConfigService")
-    private val mapper = ObjectMapper().registerKotlinModule()
+    private val mapper = jsonMapper { addModules(kotlinModule()) }
 
     /**
      * Loads the layout configs for a given project.

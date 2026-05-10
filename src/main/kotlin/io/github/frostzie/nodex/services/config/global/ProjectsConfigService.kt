@@ -1,14 +1,13 @@
 package io.github.frostzie.nodex.services.config.global
 
-import com.fasterxml.jackson.core.type.TypeReference
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import io.github.frostzie.nodex.domain.entity.RecentProject
 import io.github.frostzie.nodex.services.config.BackupService
 import io.github.frostzie.nodex.api.file.FileOperations
 import io.github.frostzie.nodex.api.file.FileWatcher
 import io.github.frostzie.nodex.utils.LoggerProvider
+import tools.jackson.core.type.TypeReference
+import tools.jackson.module.kotlin.jsonMapper
+import tools.jackson.module.kotlin.kotlinModule
 import java.nio.file.Path
 
 /**
@@ -23,9 +22,7 @@ class ProjectsConfigService(
     private val backupService: BackupService
 ) {
     private val logger = LoggerProvider.getLogger("ProjectsConfigService")
-    private val mapper = ObjectMapper()
-        .registerKotlinModule()
-        .registerModule(JavaTimeModule())
+    private val mapper = jsonMapper {addModules(kotlinModule())}
 
     private var onReload: ((List<RecentProject>) -> Unit)? = null
 

@@ -1,9 +1,5 @@
 package io.github.frostzie.nodex.services.config.global
 
-import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import io.github.frostzie.nodex.domain.settings.AppSettings
 import io.github.frostzie.nodex.services.settings.SettingsValidationService
 import io.github.frostzie.nodex.services.config.BackupService
@@ -13,6 +9,9 @@ import io.github.frostzie.nodex.api.misc.ModVersion
 import io.github.frostzie.nodex.api.file.FileOperations
 import io.github.frostzie.nodex.utils.LoggerProvider
 import io.github.frostzie.nodex.utils.ModVersionUtils
+import tools.jackson.databind.JsonNode
+import tools.jackson.module.kotlin.jsonMapper
+import tools.jackson.module.kotlin.kotlinModule
 import java.nio.file.Path
 
 /**
@@ -30,10 +29,9 @@ class SettingsConfigService(
     private val validationService: SettingsValidationService
 ) {
     private val logger = LoggerProvider.getLogger("SettingsConfigService")
-    private val mapper = ObjectMapper()
-        .registerKotlinModule()
-        .registerModule(JavaTimeModule())
-
+    private val mapper = jsonMapper {
+        addModules(kotlinModule())
+    }
     /**
      * Loads settings, applying migrations if needed.
      *

@@ -1,8 +1,8 @@
 package io.github.frostzie.nodex.services.config
 
-import com.fasterxml.jackson.databind.JsonNode
 import io.github.frostzie.nodex.api.config.Migration
 import io.github.frostzie.nodex.utils.ModVersionUtils
+import tools.jackson.databind.JsonNode
 
 /**
  * Service responsible for transforming [JsonNode] data across version boundaries.

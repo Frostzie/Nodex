@@ -1,5 +1,6 @@
 import kotlin.String
 import org.gradle.internal.os.OperatingSystem
+import java.time.Duration
 
 plugins {
     id("net.fabricmc.fabric-loom")
@@ -97,14 +98,14 @@ dependencies {
     implementation(libs.jacksonCore)
     implementation(libs.jacksonDatabind)
     implementation(libs.jacksonModuleKotlin)
-    implementation(libs.jacksonDatatypeJsr310)
-    implementation(libs.jacksonAnnotations)
+    //implementation(libs.jacksonDatatypeJsr310)
+    //implementation(libs.jacksonAnnotations)
 
     include(libs.jacksonCore)
     include(libs.jacksonDatabind)
     include(libs.jacksonModuleKotlin)
-    include(libs.jacksonDatatypeJsr310)
-    include(libs.jacksonAnnotations)
+    //include(libs.jacksonDatatypeJsr310)
+    //include(libs.jacksonAnnotations)
 
     // File Watcher
     implementation(libs.directoryWatcher)
@@ -112,6 +113,18 @@ dependencies {
 
     implementation(libs.koin.core)
     include(libs.koin.core)
+
+    testImplementation(libs.junit.jupiter)
+    testImplementation(libs.mockk)
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+tasks.test {
+    useJUnitPlatform()
+    timeout.set(Duration.ofMinutes(2))
+    testLogging {
+        events("passed", "skipped", "failed")
+    }
 }
 
 // Taken from Stonecutter template
