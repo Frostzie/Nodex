@@ -2,7 +2,6 @@ package io.github.frostzie.nodex.ui.view.ide.workbench.editor
 
 import atlantafx.base.theme.Styles
 import io.github.frostzie.nodex.domain.uicontract.EditorTab
-import io.github.frostzie.nodex.services.ui.editor.TabStyleService
 import io.github.frostzie.nodex.ui.view.ide.workbench.editor.pane.CodeEditorView
 import io.github.frostzie.nodex.ui.view.ide.workbench.editor.pane.EmptyCodeEditorView
 import io.github.frostzie.nodex.ui.viewmodel.ide.workbench.editor.EditorAreaViewModel
