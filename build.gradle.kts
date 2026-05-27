@@ -114,6 +114,7 @@ dependencies {
     implementation(libs.koin.core)
     include(libs.koin.core)
 
+    testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.mockk)
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
