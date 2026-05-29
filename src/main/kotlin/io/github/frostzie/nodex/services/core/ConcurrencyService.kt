@@ -7,6 +7,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 
 /**
@@ -31,10 +32,10 @@ class ConcurrencyService : Concurrency {
     override val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 
     /**
-     * Dispatcher for UI operations (Main = JavaFX App Thread).
+     * Dispatcher for UI operations.
      * Use this within coroutines to switch to the UI thread.
      */
-    override val uiDispatcher: CoroutineDispatcher = Dispatchers.Main
+    override val uiDispatcher: CoroutineDispatcher = Dispatchers.JavaFx
 
     /**
      * Dispatcher for CPU-intensive operations (Data parsing, calculations).

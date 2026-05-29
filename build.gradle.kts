@@ -94,18 +94,14 @@ dependencies {
     include(libs.undofx)
     include(libs.wellbehavedfx)
 
-    // Jackson //TODO: Update to 3.x
+    // Jackson
     implementation(libs.jacksonCore)
     implementation(libs.jacksonDatabind)
     implementation(libs.jacksonModuleKotlin)
-    //implementation(libs.jacksonDatatypeJsr310)
-    //implementation(libs.jacksonAnnotations)
 
     include(libs.jacksonCore)
     include(libs.jacksonDatabind)
     include(libs.jacksonModuleKotlin)
-    //include(libs.jacksonDatatypeJsr310)
-    //include(libs.jacksonAnnotations)
 
     // File Watcher
     implementation(libs.directoryWatcher)
@@ -113,6 +109,9 @@ dependencies {
 
     implementation(libs.koin.core)
     include(libs.koin.core)
+
+    implementation(libs.kotlinx.coroutines.javafx)
+    include(libs.kotlinx.coroutines.javafx)
 
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.junit.jupiter)
